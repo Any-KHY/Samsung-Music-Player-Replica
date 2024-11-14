@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/album_details_activity_album_details_relativelayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    tools:context=".AlbumDetailsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/album_details_activity_album_details_linearlayout"
+        android:orientation="vertical"
+        android:weightSum="6"
+        tools:ignore="UselessParent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/album_details_activity_album_details_item_relativelayout"
+            android:layout_weight="2">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/album_details_activity_album_details_ablum_art"
+                android:src="@drawable/default_ablum_art"
+                android:scaleType="centerCrop"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/album_details_activity_album_details_ablum_art_gradient"
+                android:src="@drawable/gredient_bg_top"/>
+
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="10sp"
+            android:id="@+id/album_details_activity_album_details_items_recyclerview"
+            android:layout_weight="4"
+
+            android:singleLine="true"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:ellipsize="marquee"
+            android:scrollHorizontally="true"
+
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:freezesText="true"
+            android:textColorHighlight="@android:color/transparent"
+            />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/albumDetails_album_list_no_songs_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/message_no_songs_text"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:textColor="@color/textWhite"/>
+
+</RelativeLayout>

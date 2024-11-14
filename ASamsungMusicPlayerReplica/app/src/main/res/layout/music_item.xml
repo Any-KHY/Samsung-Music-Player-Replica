@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--margin on top to give space betweem items -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5sp"
+    android:id="@+id/music_item"
+    android:background="@color/colorPrimaryDark"
+    >
+
+    <ImageView
+        android:id="@+id/music_item_album_art"
+        android:layout_width="60sp"
+        android:layout_height="60sp"
+        android:src="@drawable/img_audiotrack"
+        android:contentDescription="@string/music_item_album_art"
+        android:padding="10dp"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:id="@+id/music_itme_song_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/music_item_album_art"
+        android:layout_marginStart="10sp"
+        android:layout_marginTop="10sp"
+        android:layout_alignParentTop="true"
+
+        android:text="@string/song_name"
+        android:textColor="@color/textWhite"
+        android:textSize="20sp"
+
+        android:singleLine="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:ellipsize="marquee"
+        android:scrollHorizontally="true"
+
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:freezesText="true"
+        android:textColorHighlight="@android:color/transparent"
+
+        />
+
+
+    <TextView
+        android:id="@+id/music_itme_artist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/music_item_album_art"
+        android:layout_below="@id/music_itme_song_name"
+        android:layout_marginStart="10sp"
+        android:layout_centerVertical="true"
+
+        android:text="@string/artist"
+        android:textColor="@color/textWhite"
+        android:textSize="16sp"
+
+        android:singleLine="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:ellipsize="marquee"
+        android:scrollHorizontally="true"
+
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:freezesText="true"
+        android:textColorHighlight="@android:color/transparent"
+        />
+
+</RelativeLayout>

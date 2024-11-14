@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/player_main_bg"
+    android:orientation="vertical">
+
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/main_activity_tab_bar_menu_layout"
+        android:contentDescription="@string/main_activity_tab_bar_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:background="@color/colorPrimaryDark"
+        app:tabIndicatorFullWidth="true"
+        app:tabIndicatorGravity="center"
+        app:tabTextColor="@color/textWhite"
+        app:tabIndicatorHeight="60sp"
+        app:tabIndicatorColor="@color/colorSelected"
+        app:tabIndicator="@drawable/tab_indicator"
+        />
+
+    <!-- allows users to swipe left or right between different pages of content -->
+    <!-- https://developer.android.com/develop/ui/views/animations/screen-slide-2?hl=zh-tw -->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/main_activity_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+</LinearLayout>

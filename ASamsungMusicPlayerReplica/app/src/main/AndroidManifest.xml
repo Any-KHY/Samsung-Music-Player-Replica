@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!-- From Andiord Doc:　https://developer.android.com/about/versions/14/changes/partial-photo-video-access　 -->
+    <!-- Devices running Android 12L (API level 32) or lower -->
+    <!-- <uses-permission android:name="android.permission.BROADCAST_CLOSE_SYSTEM_DIALOGS" /> -->
+    <uses-permission
+        android:name="android.permission.BROADCAST_CLOSE_SYSTEM_DIALOGS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32"
+        tools:ignore="ScopedStorage" /> <!-- Permissions for Android 13 and above -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" /> <!-- Internet permission -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- for mini player in Notification Bar -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" /> <!-- Required for media playback foreground service -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:name=".ApplicationClass"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ASamsungMusicPlayerReplica"
+        tools:targetApi="31">
+
+        <activity
+            android:name=".AlbumDetailsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".MusicPlayer"
+            android:exported="false"
+            android:configChanges="orientation|screenSize"/>
+
+        <activity
+            android:name=".MusicService"
+            android:exported="false"
+            android:configChanges="orientation|screenSize"/>
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Foreground service for media playback -->
+        <service android:name="com.example.asamsungmusicplayerreplica.MusicService"
+            android:enabled="true"
+            android:foregroundServiceType="mediaPlayback"/>
+
+        <!-- Notification Receiver -->
+        <receiver android:name="com.example.asamsungmusicplayerreplica.MusicService$NotificationReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="actionPrevious"/>
+                <action android:name="actionPlay"/>
+                <action android:name="actionPause"/>
+                <action android:name="actionNext"/>
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

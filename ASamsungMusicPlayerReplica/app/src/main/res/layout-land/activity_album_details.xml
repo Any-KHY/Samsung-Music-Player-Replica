@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/album_details_activity_album_details_relativelayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    tools:context=".AlbumDetailsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/album_details_activity_album_details_linearlayout"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:background="@drawable/player_main_bg"
+        tools:ignore="UselessParent">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/album_details_activity_album_details_item_relativelayout"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/album_details_activity_album_details_ablum_art"
+                android:src="@drawable/default_ablum_art"
+                android:scaleType="centerCrop"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/album_details_activity_album_details_ablum_art_gradient"
+                android:src="@drawable/gredient_bg_top"/>
+
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10sp"
+            android:id="@+id/album_details_activity_album_details_items_recyclerview"
+            android:layout_weight="1"
+
+            android:singleLine="true"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:ellipsize="marquee"
+            android:scrollHorizontally="true"
+
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:freezesText="true"
+            android:textColorHighlight="@android:color/transparent"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/albumDetails_album_list_no_songs_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/message_no_songs_text"
+        android:textSize="24sp"
+        android:gravity="right"
+        android:layout_marginEnd="100sp"
+        android:layout_marginTop="150sp"
+        android:textColor="@color/textWhite"/>
+
+</RelativeLayout>
